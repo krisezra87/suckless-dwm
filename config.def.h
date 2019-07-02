@@ -12,10 +12,23 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+static const char wb_bg[]           = "#1c1c1c";
+static const char wb_fg[]           = "#f6f3e8";
+static const char wb_cur[]          = "#656565";
+static const char wb_sel[]          = "#444444";
+static const char wb_grey[]         = "#99968b";
+static const char wb_blue[]         = "#8ac6f2";
+static const char wb_red[]          = "#e5786d";
+static const char wb_yellow[]       = "#cae682";
+static const char wb_ltgreen[]      = "#e7f6da";
+static const char wb_green[]        = "#95e454";
+static const char wb_dkgrey[]       = "#8f8f8f";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { wb_fg, wb_bg,  wb_ltgreen  },
 };
 
 /* tagging */

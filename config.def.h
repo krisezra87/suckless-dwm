@@ -79,14 +79,14 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *qutecmd[]  = { "qutebrowser", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
-// static const char *matlabcmd[]  = { "st", "-e", "matlab", "-display", NULL };
+static const char *matlabcmd[]  = { "matlab", "-desktop", "-nosplash", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_q,      spawn,          {.v = qutecmd } },
-    // { MODKEY,                       XK_m,      spawn,          {.v = matlabcmd } },
+    { MODKEY,                       XK_m,      spawn,          {.v = matlabcmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = rangercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

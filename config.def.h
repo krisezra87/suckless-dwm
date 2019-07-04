@@ -81,7 +81,16 @@ static const char *slockcmd[]  = { "slock", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *matlabcmd[]  = { "matlab", "-desktop", "-nosplash", NULL };
 
+#include <X11/XF86keysym.h>
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+
+/* Add to keys[] array. With 0 as modifier, you are able to use the keys directly. */
 static Key keys[] = {
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },

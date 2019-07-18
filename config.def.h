@@ -81,6 +81,7 @@ static const char *slockcmd[]  = { "slock", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *matlabcmd[]  = { "matlab", "-desktop", "-nosplash", NULL };
 static const char *tbirdcmd[]  = { "thunderbird", NULL };
+static const char *vboxcmd[]  = { "virtualbox", NULL };
 
 #include <X11/XF86keysym.h>
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
@@ -99,6 +100,7 @@ static Key keys[] = {
     { MODKEY,                       XK_m,      spawn,          {.v = matlabcmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = rangercmd } },
     { MODKEY,                       XK_t,      spawn,          {.v = tbirdcmd } },
+    { MODKEY,                       XK_v,      spawn,          {.v = vboxcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

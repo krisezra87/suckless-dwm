@@ -88,6 +88,7 @@ static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *matlabcmd[]  = { "matlab", "-desktop", "-nosplash", NULL };
 static const char *tbirdcmd[]  = { "thunderbird", NULL };
 static const char *vboxcmd[]  = { "virtualbox", NULL };
+static const char *chromecmd[]  = { "chromium", NULL };
 
 #include <X11/XF86keysym.h>
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
@@ -103,10 +104,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_q,      spawn,          {.v = qutecmd } },
-    { MODKEY,                       XK_m,      spawn,          {.v = matlabcmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = rangercmd } },
     { MODKEY,                       XK_t,      spawn,          {.v = tbirdcmd } },
     { MODKEY,                       XK_v,      spawn,          {.v = vboxcmd } },
+    { MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -120,7 +121,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_c,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
     { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },

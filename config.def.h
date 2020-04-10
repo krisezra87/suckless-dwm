@@ -87,7 +87,7 @@ static const char *slockcmd[]  = { "slock", NULL };
 static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *tbirdcmd[]  = { "thunderbird", NULL };
 static const char *vboxcmd[]  = { "virtualbox", NULL };
-static const char *chromecmd[]  = { "chromium", NULL };
+static const char *bravecmd[]  = { "brave", NULL };
 static const char *windowsvm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{8d087cf1-c7d5-42ed-9495-b7ba2f1c282a}", NULL };
 static const char *webervm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{17ce840e-4971-4b83-84b4-74c9e48533e9}", NULL };
 #include <X11/XF86keysym.h>
@@ -109,7 +109,7 @@ static Key keys[] = {
     { MODKEY,                       XK_v,      spawn,          {.v = vboxcmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = windowsvm } },
     { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webervm } },
-    { MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },
+    { MODKEY,                       XK_c,      spawn,          {.v = bravecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

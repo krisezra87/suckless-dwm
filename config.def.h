@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
+static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=15" };
@@ -115,6 +115,7 @@ static Key keys[] = {
     { MODKEY,                       XK_w,      spawn,          {.v = windowsvm } },
     { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webervm } },
     { MODKEY,                       XK_c,      spawn,          {.v = bravecmd } },
+    { MODKEY,                       XK_s,      spawn,          SHCMD("escrotum -sC") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+    { NULL,    NULL,  "NoiseTorch",        0,         0,          0,           1,        -1 },
 	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
     // { NULL,      NULL,     "SMARTset v2020.4.2",         0,         1,          0,           1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
@@ -90,31 +91,24 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *qutecmd[]  = { "qutebrowser", NULL };
-static const char *slockcmd[]  = { "slock", NULL };
-static const char *rangercmd[]  = { "st", "-e", "vifm", NULL };
-static const char *vboxcmd[]  = { "virtualbox", NULL };
-static const char *bravecmd[]  = { "brave", NULL };
+static const char *vifmcmd[]  = { "st", "-e", "vifm", NULL };
 static const char *windowsvm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{8d087cf1-c7d5-42ed-9495-b7ba2f1c282a}", NULL };
 static const char *webervm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{17ce840e-4971-4b83-84b4-74c9e48533e9}", NULL };
 #include <X11/XF86keysym.h>
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 static Key keys[] = {
-	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
-	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+    { 0,                       XF86XK_AudioLowerVolume, spawn, SHCMD("voldown")},
+    { 0,                       XF86XK_AudioMute,        spawn, SHCMD("volmute")},
+    { 0,                       XF86XK_AudioRaiseVolume, spawn, SHCMD("volup")  },
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_q,      spawn,          {.v = qutecmd } },
-    { MODKEY,                       XK_e,      spawn,          {.v = rangercmd } },
-    { MODKEY,                       XK_v,      spawn,          {.v = vboxcmd } },
+    { MODKEY,                       XK_q,      spawn,          SHCMD("qutebrowser") },
+    { MODKEY,                       XK_e,      spawn,          {.v = vifmcmd } },
+    { MODKEY,                       XK_v,      spawn,          SHCMD("virtualbox") },
     { MODKEY,                       XK_w,      spawn,          {.v = windowsvm } },
     { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webervm } },
-    { MODKEY,                       XK_c,      spawn,          {.v = bravecmd } },
+    { MODKEY,                       XK_c,      spawn,          SHCMD("brave") },
     { MODKEY,                       XK_s,      spawn,          SHCMD("escrotum -sC") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -126,7 +120,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
-    { MODKEY|ControlMask,           XK_c,      spawn,          {.v = slockcmd } },
+    { MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[2]} },

@@ -92,8 +92,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *vifmcmd[]  = { "st", "-e", "vifm", NULL };
-static const char *windowsvm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{8d087cf1-c7d5-42ed-9495-b7ba2f1c282a}", NULL };
-static const char *webervm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{17ce840e-4971-4b83-84b4-74c9e48533e9}", NULL };
+static const char *windowsvm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{ee33529c-e8c4-48df-b1a6-b54a9c57b8c9}", NULL };
+static const char *webervm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{3c5977a4-1c93-4416-9ac8-599ba292bfed}", NULL };
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {

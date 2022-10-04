@@ -58,6 +58,7 @@ static const Rule rules[] = {
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
     { NULL,       NULL, pdfpc_presenter_title,    0,  0,          0,           0,         2 },
     { NULL,       NULL, pdfpc_presentation_title, 0,  0,          0,           0,         1 },
+    { "Reacher.x86_64","Reacher.x86_64","Unity Environment",0, 1, 0,           1,        -1 },
 };
 
 /* layout(s) */

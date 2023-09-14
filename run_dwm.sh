@@ -10,7 +10,7 @@ picom &
 dunst &
 
 [[ -d $HOME/scripts ]] && export PATH=$HOME/scripts:$PATH
-[ -f ~/scripts/dwmbar ] && dwmbar &
+[ -f $HOME/scripts/dwmbar ] && $HOME/scripts/dwmbar &
 
 # Launch dwm.  If we exit or reload it, we will log out
 dwm >/dev/null 2>&1

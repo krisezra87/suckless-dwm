@@ -56,9 +56,10 @@ static const Rule rules[] = {
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
-    { NULL,       NULL, pdfpc_presenter_title,    0,  0,          0,           0,         2 },
-    { NULL,       NULL, pdfpc_presentation_title, 0,  0,          0,           0,         1 },
+    { NULL,      NULL, pdfpc_presenter_title,    0,   0,          0,           0,         2 },
+    { NULL,      NULL, pdfpc_presentation_title, 0,   0,          0,           0,         1 },
     { "Reacher.x86_64","Reacher.x86_64","Unity Environment",0, 1, 0,           1,        -1 },
+    { "steam",   NULL,     NULL,           0,         0,          0,           0,        -1 },
 };
 
 /* layout(s) */
@@ -92,7 +93,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *muttcmd[]  = { "st", "-e", "neomutt", NULL };
 static const char *windowsvm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{ee33529c-e8c4-48df-b1a6-b54a9c57b8c9}", NULL };
-static const char *webervm[]  = {"/usr/lib/virtualbox/VirtualBoxVM", "--startvm", "{3c5977a4-1c93-4416-9ac8-599ba292bfed}", NULL };
+
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
@@ -100,15 +101,9 @@ static Key keys[] = {
     { 0,                       XF86XK_AudioMute,        spawn, SHCMD("volmute")},
     { 0,                       XF86XK_AudioRaiseVolume, spawn, SHCMD("volup")  },
 	/* modifier                     key        function        argument */
+    /* leaving dmenu here because it uses some theming */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_q,      spawn,          SHCMD("qutebrowser") },
-    { MODKEY,                       XK_e,      spawn,          {.v = muttcmd } },
-    { MODKEY,                       XK_v,      spawn,          SHCMD("virtualbox") },
-    { MODKEY,                       XK_w,      spawn,          {.v = windowsvm } },
-    { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = webervm } },
-    { MODKEY,                       XK_c,      spawn,          SHCMD("brave") },
-    { MODKEY,                       XK_s,      spawn,          SHCMD("escrotum -sC") },
+    // { MODKEY,                       XK_w,      spawn,          {.v = windowsvm } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -118,7 +113,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
@@ -140,7 +135,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 };
 
 /* button definitions */

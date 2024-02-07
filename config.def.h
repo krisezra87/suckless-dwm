@@ -60,6 +60,9 @@ static const Rule rules[] = {
     { NULL,      NULL, pdfpc_presentation_title, 0,   0,          0,           0,         1 },
     { "Reacher.x86_64","Reacher.x86_64","Unity Environment",0, 1, 0,           1,        -1 },
     { "steam",   NULL,     NULL,           0,         0,          0,           0,        -1 },
+    // { "Zathura","org.pwmt.zathura","~/GIT/",0,        0,          0,           1,        -1 },
+    { "Zathura", NULL,     NULL,           0,         0,          0,           1,        -1 },
+    { "zoom",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 };
 
 /* layout(s) */
